@@ -3,64 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
-    <link rel="icon" type="cal/x-icon" href="cal.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="cal.png">
 </head>
 <body>
     <header>
-        <h1>Calculator</h1>
+        <h1 id="mainTitle">Calculator</h1> 
         <p>Simple Calculator using HTML, CSS and JavaScript</p>
     </header>
-    <div class ="container">
-        <div class ="calculator">
+
+    <div class="container">
+        <div class="calculator">
             <input type="text" disabled placeholder="0" id="output">
-            <button onclick="Clear()"> CLS</button>
-            <button onclick="Delete()"> DEL</button>
-            <button onclick="Display('%')"> %</button>
-            <button onclick="Display('/')"> /</button>
-            <button onclick="Display('7')"> 7</button>
-            <button onclick="Display('8')"> 8</button>
-            <button onclick="Display('9')"> 9</button>
-            <button onclick="Display('*')"> *</button>
-            <button onclick="Display('4')"> 4</button>
-            <button onclick="Display('5')"> 5</button>
-            <button onclick="Display('6')"> 6</button>
-            <button onclick="Display('-')"> -</button>
-            <button onclick="Display('1')"> 1</button>
-            <button onclick="Display('2')"> 2</button>
-            <button onclick="Display('3')"> 3</button>
-            <button onclick="Display('+')"> +</button>
-            <button onclick="Display('.')"> .</button>
-            <button onclick="Display('0')"> 0</button>
-            <button onclick="Calculate()" class ="equal"> =</button>
-
-
-            
+            <button onclick="Clear()">CLS</button>
+            <button onclick="Delete()">DEL</button>
+            <button onclick="Display('%')">%</button>
+            <button onclick="Display('/')">/</button>
+            <button onclick="Display('7')">7</button>
+            <button onclick="Display('8')">8</button>
+            <button onclick="Display('9')">9</button>
+            <button onclick="Display('*')">*</button>
+            <button onclick="Display('4')">4</button>
+            <button onclick="Display('5')">5</button>
+            <button onclick="Display('6')">6</button>
+            <button onclick="Display('-')">-</button>
+            <button onclick="Display('1')">1</button>
+            <button onclick="Display('2')">2</button>
+            <button onclick="Display('3')">3</button>
+            <button onclick="Display('+')">+</button>
+            <button onclick="Display('.')">.</button>
+            <button onclick="Display('0')">0</button>
+            <button onclick="Calculate()" class="equal">=</button>
         </div>
     </div>
+
     <script>
         let output = document.getElementById('output');
 
         function Display(num) {
             output.value += num;   
         }
-        function Calculate(){
-            try{
+
+        function Calculate() {
+            try {
                 output.value = eval(output.value);
-            }
-            catch(err){
+            } catch (err) {
                 alert("Please enter a valid expression.");
             }
         }
+
         function Clear() {
-            output.value = " ";
+            output.value = "";
         }
+
         function Delete() {
             output.value = output.value.slice(0, -1);
         }
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const title = document.getElementById("mainTitle");
+            title.textContent = "Calculator";
+        });
     </script>
-   
 </body>
 </html>
